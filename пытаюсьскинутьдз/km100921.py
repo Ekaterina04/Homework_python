@@ -1,4 +1,10 @@
-from decorator import show
+def show(func):
+    def new_func(*args, **kwargs):
+        print('Running function: ', func.__name__)
+        print('Positional arguments are: ', args)
+        print('Keyword arguments are: ', kwargs)
+        
+    return new_func
 @show
 def initials_PRO(names):
     b = len(names)
@@ -10,6 +16,6 @@ def initials_PRO(names):
     return new_names
 
 
-spisok=['СТрыжак роберт андреевич','попов ростислав валерьевич','меняйло катерина андреевна','загребин керил максимович','герман стрыжак андреевич']
+spisok=['Меняйло Екатерина Андреевна','Бабков Никита Алексеевич','Бухтиничева Ксения Геннадьвна','Загребин Кирилл Максимович','Лубянцев Дмитрий Андреевич']
 
 print(initials_PRO(spisok))
